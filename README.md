@@ -20,6 +20,6 @@ It allows users (and their feline friends 😺) to connect, share photos, and ex
 
 - **Next.js** – React framework for server-side rendering and static generation  
 - **TypeScript** – Type safety and cleaner code  
-- **API Routes** – Built-in backend routes with Next.js  
+- **API Routes** – Built-in backend routes with Next.js 
 
 ---

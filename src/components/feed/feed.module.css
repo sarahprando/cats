@@ -1,0 +1,60 @@
+.feed {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 40rem) {
+  .feed {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 0.4rem;
+}
+
+.photo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+.visualizacao {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.visualizacao::before {
+  width: 16px;
+  height: 10px;
+  content: "";
+  display: inline-block;
+  margin-right: 0.25rem;
+  background: url("/assets/visualizacao.svg") no-repeat center;
+  background-size: contain;
+}
+
+.photo:hover .visualizacao {
+  opacity: 1;
+}
