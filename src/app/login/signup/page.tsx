@@ -1,7 +1,16 @@
+import { Metadata } from "next";
+import LoginSignupForm from "../../../components/login/login-singup-form";
+
+export const metadata: Metadata = {
+    title: 'Signup | Cats',
+    description: 'Create a new account',
+};
+
 export default async function SignupPage() {
     return (
-        <main>
-            <h1>Signup</h1>
-        </main>
+        <div className="animeLeft">
+            <h1 className="title">Signup</h1>
+            <LoginSignupForm />
+        </div>
     )
 }
