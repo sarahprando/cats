@@ -1,13 +1,12 @@
 'use client'
 
-import login from "@/actions/login";
 import { useFormState, useFormStatus } from "react-dom";
-import Button from "../forms/button";
-import Input from "../forms/input";
-import ErrorMessage from "../helper/error-message";
 import React from "react";
-import Link from "next/link";
 import styles from './login-form.module.css';
+import Button from "@/components/forms/button";
+import Input from "@/components/forms/input";
+import ErrorMessage from "@/components/helper/error-message";
+import userPost from "@/actions/user-post";
 
 function FormButton() {
     const { pending } = useFormStatus();
@@ -17,14 +16,14 @@ function FormButton() {
             {pending ? (
                 <Button disabled={pending}>Sending...</Button>
             ) : (
-                <Button disabled={pending}>Sign In</Button>
+                <Button disabled={pending}>Sign up</Button>
             )}
         </>
     )
 }
 
-export default function LoginForm() {
-    const [state, action] = useFormState(login, {
+export default function LoginSignupForm() {
+    const [state, action] = useFormState(userPost, {
         ok: false,
         error: '',
         data: null,
@@ -40,15 +39,11 @@ export default function LoginForm() {
         <>
             <form action={action} className={styles.form}>
                 <Input label="Username" name="username" type="text" />
+                <Input label="Email" name="email" type="email" />
                 <Input label="Password" name="password" type="password" />
                 <ErrorMessage error={state.error} />
                 <FormButton />
             </form>
-            <Link className={styles.perdeu} href="/login/forgot-password">Forgot your password?</Link>
-            <div className={styles.cadastro}>
-                <p className={styles.subtitle}>New here?</p>
-                <Link className="button" href="/login/signup">Create an account</Link>
-            </div>
         </>
     )
 }

@@ -6,7 +6,10 @@ import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Cats Next",
-  description: "A social network made for cats to share their best moments."  
+  description: "A social network made for cats to share their best moments.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
@@ -15,14 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-BR">
       <body className={type_second.variable}>
         <div className="App">
-        <Header />
-        <main className="AppBody">
-        {children}
-        </main>
-        <Footer />
+          <Header />
+          <main className="AppBody">
+            {children}
+          </main>
+          <Footer />
         </div>
       </body>
     </html>
