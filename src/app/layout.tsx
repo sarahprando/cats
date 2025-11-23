@@ -3,6 +3,8 @@ import "./globals.css";
 import { type_second } from "@/functions/fonts";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { UserContextProvider } from "@/context/user-context";
+import userGet from "@/actions/user-get";
 
 export const metadata: Metadata = {
   title: "Cats Next",
@@ -12,14 +14,18 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const {data: user} = await userGet();
+
   return (
     <html lang="pt-BR">
       <body className={type_second.variable}>
+        <UserContextProvider user={user}>
         <div className="App">
           <Header />
           <main className="AppBody">
@@ -27,6 +33,7 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        </UserContextProvider>
       </body>
     </html>
   );

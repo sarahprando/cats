@@ -1,3 +1,4 @@
+import LoginResetForm from "@/components/login/login-reset-form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,10 +6,20 @@ export const metadata: Metadata = {
     description: 'Reset your password',
 };
 
-export default async function ResetPage() {
+type ResetSearchParams = {
+    searchParams: {
+        key: string;
+        login: string;
+    }
+};
+
+export default async function ResetPage({
+    searchParams,
+}: ResetSearchParams) {
     return (
-        <main>
-            <h1>Reset</h1>
-        </main>
+        <div className="animeLeft">
+            <h1 className="title">Reset your password</h1>
+            <LoginResetForm keyToken={searchParams.key} login={searchParams.login} />
+        </div>
     )
 }
