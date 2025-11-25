@@ -4,6 +4,8 @@ A fun and modern **social network for cats**, built with **Next.js**.
 This project is part of the **Origamid Next.js course**, which I’m customizing and expanding with my own design and features.  
 It allows users (and their feline friends 😺) to connect, share photos, and explore a playful community — designed with a clean, responsive interface and optimized performance.
 
+Website: https://cats-nu-seven.vercel.app/
+
 ---
 
 ## ✨ Features
