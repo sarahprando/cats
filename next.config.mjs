@@ -6,6 +6,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.thecatapi.com",
       },
+      {
+        protocol: "https",
+        hostname: "**.tumblr.com",
+      },
+      {
+        protocol: "https",
+        hostname: "**.flickr.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.imgur.com",
+      },
     ],
   },
 };
