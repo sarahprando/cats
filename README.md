@@ -8,11 +8,11 @@ It allows users (and their feline friends 😺) to connect, share photos, and ex
 
 ## ✨ Features
 
-- 🐱 User profiles and authentication  
-- 📸 Photo sharing for cats and owners  
-- 💬 Likes, comments, and social interactions  
-- 🎨 Clean, modern, and responsive UI  
-- ⚡ Built with performance and scalability in mind  
+- 🐱 User profiles and authentication
+- 📸 Browse and view cat photos
+- 🔍 Explore detailed cat information and breeds
+- 🎨 Clean, modern, and responsive UI
+- ⚡ Built with performance and scalability in mind
 
 ---
 
