@@ -1,5 +1,5 @@
 import photoGet from '@/actions/photo-get';
-import PhotoContent from '@/components/photo/photo-content';
+import FeedModal from '@/components/feed/feed-modal';
 import { notFound } from 'next/navigation';
 
 type PhotoIdParams = {
@@ -13,7 +13,6 @@ export async function generateMetadata({ params }: PhotoIdParams) {
 
     const title =
         data?.breeds?.[0]?.name ||
-        data?.id ||
         "Cat Photo";
 
     return { title };
@@ -24,9 +23,5 @@ export default async function PhotoIdPage({ params }: PhotoIdParams) {
 
     if (!data) return notFound();
 
-    return (
-        <section className="container mainContainer">
-            <PhotoContent data={data} single={true} />
-        </section>
-    );
+    return <FeedModal photo={data} />;
 }

@@ -6,6 +6,10 @@ export type Breed = {
   temperament: string;
   origin: string;
   description: string;
+  life_span?: string;
+  weight?: {
+    metric: string;
+  };
 };
 
 export type Photo = {
@@ -16,21 +20,41 @@ export type Photo = {
   breeds?: Breed[];
 };
 
-export default async function photosGet() {
-  const response = await fetch(
-    "https://api.thecatapi.com/v1/images/search?limit=12",
-    {
-      headers: {
-        "x-api-key": process.env.THE_CAT_API_KEY || "",
-      },
-      next: { revalidate: 60 },
-    }
-  );
+export async function photosGet({
+  breedId,
+  page = 0,
+  limit = 9
+}: {
+  breedId?: string;
+  page?: number;
+  limit?: number;
+}) {
+  const base = `https://api.thecatapi.com/v1/images/search`;
+  const params = new URLSearchParams({
+    limit: String(limit),
+    page: String(page),
+    order: "ASC",
+    has_breeds: "true",
+  });
+
+  if (breedId) {
+    params.append("breed_ids", breedId);
+  }
+
+  const url = `${base}?${params.toString()}`;
+
+  const response = await fetch(url, {
+    headers: {
+      "x-api-key": process.env.THE_CAT_API_KEY || "",
+    },
+    cache: "no-store",
+  });
 
   if (!response.ok) {
     throw new Error("Error fetching cats.");
   }
 
   const data = (await response.json()) as Photo[];
-  return data;
+
+  return { data };
 }

@@ -1,13 +1,18 @@
 'use client';
 
-import React from "react";
 import { useUser } from "@/context/user-context";
+import MyAccount from "@/components/account/my-account";
 
 export default function AccountPage() {
-   const {user} = useUser();
-    return (
-        <main>
-            <h1>Conta: {user?.nome}</h1>
-        </main>
-    )
+  const { user } = useUser();
+
+  if (!user) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <section>
+      <MyAccount user={user} />
+    </section>
+  );
 }

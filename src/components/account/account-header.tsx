@@ -3,7 +3,6 @@
 import React from 'react';
 import FeedIcon from '@/icons/feed-icon';
 import EstatisticasIcon from '@/icons/estatisticas-icon';
-import AdicionarIcon from '@/icons/adicionar-icon';
 import SairIcon from '@/icons/sair-icon';
 import useMedia from '@/hooks/use-media';
 import styles from './account-header.module.css';
@@ -64,13 +63,6 @@ export default function AccountHeader() {
                 >
                     <EstatisticasIcon />
                     {mobile && 'Statistics'}
-                </Link>
-                <Link
-                    href="/account/posts"
-                    className={pathname === '/account/posts' ? 'active' : ''}
-                >
-                    <AdicionarIcon />
-                    {mobile && 'Add Photos'}
                 </Link>
                 <button onClick={handleLogout}>
                     <SairIcon />
