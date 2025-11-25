@@ -20,7 +20,7 @@ export default function Feed({
         return photos.length >= 9;
     });
     const fetching = React.useRef(false);
-    function infiniteScroll() {
+    const infiniteScroll = React.useCallback(() => {
         if (!infinite || fetching.current) return;
 
         const scroll = window.scrollY;
@@ -37,7 +37,7 @@ export default function Feed({
                 setLoading(false);
             }, 500);
         }
-    }
+    }, [infinite]);
 
     React.useEffect(() => {
         async function loadMore() {
@@ -60,7 +60,7 @@ export default function Feed({
         return () => {
             window.removeEventListener('scroll', infiniteScroll);
         };
-    }, [infinite]);
+    }, [infiniteScroll]);
 
     return (
         <div>
